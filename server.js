@@ -58,7 +58,7 @@ app.post("/api/chat", async (req, res) => {
       : [];
 
     const response = await ai.models.generateContent({
-      model: process.env.GEMINI_MODEL || "gemini-3.8-flash",
+      model: process.env.GEMINI_MODEL || "gemini-3.5-flash",
       contents: [
         ...safeHistory,
         { role: "user", parts: [{ text: message }] }
@@ -73,8 +73,10 @@ app.post("/api/chat", async (req, res) => {
     res.json({ reply: response.text || "I could not generate a response." });
   } catch (error) {
     console.error("Gemini error:", error);
+    const status = error?.status || error?.code || 500;
+    const providerMessage = error?.error?.message || error?.message || "Unknown Gemini error";
     res.status(500).json({
-      error: "Jarvis could not reach Gemini AI."
+      error: `Gemini request failed (${status}): ${providerMessage}`
     });
   }
 });
