@@ -1,0 +1,19 @@
+{
+  "name": "jarvis-ai-assistant",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Browser-based Jarvis AI assistant with chat, microphone and secure AI backend.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "openai": "^5.12.2"
+  }
+}
