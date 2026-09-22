@@ -1,19 +1,14 @@
 {
   "name": "jarvis-ai-assistant",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "private": true,
-  "description": "Browser-based Jarvis AI assistant with chat, microphone and secure AI backend.",
+  "description": "Browser-based Jarvis AI assistant with Gemini AI, chat, microphone and voice output.",
   "main": "server.js",
-  "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
-  },
-  "engines": {
-    "node": ">=22"
-  },
+  "scripts": {"start":"node server.js","dev":"node server.js"},
+  "engines": {"node": ">=22"},
   "dependencies": {
+    "@google/genai": "^1.29.0",
     "dotenv": "^16.4.7",
-    "express": "^5.1.0",
-    "openai": "^5.12.2"
+    "express": "^5.1.0"
   }
 }
